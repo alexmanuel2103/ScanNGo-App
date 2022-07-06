@@ -2,25 +2,29 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 
+var logo = "< Scan N'Go >";
+
 export default function App() {
   return (
     <View style={styles.contenedorprincipal}>
-    <LinearGradient
+      <LinearGradient
         colors={['#D8A31A','#002244','#53273C','#110000']}
         style={styles.background}
       />
-    
-    <Text style={styles.welcome}>Welcome to Scan 'N Go</Text>
-    <Text style={styles.textlogin}>Username or Student ID</Text>
-    <TextInput style={styles.inputtext}></TextInput>
-    <Text style={styles.textlogin}>Password</Text>
-    <TextInput style={styles.inputtext} secureTextEntry={true}></TextInput>
-    <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttontext}>Login in</Text>
-    </TouchableOpacity>
-
-    
+      <View>
+        <View style={styles.caja}>
+          <Text style={styles.welcome}> {logo} </Text>
+          <Text style={styles.textlogin}>Username or Student ID</Text>
+          <TextInput style={styles.inputtext} keyboardType='numeric'></TextInput>
+          <Text style={styles.textlogin}>Password</Text>
+          <TextInput style={styles.inputtext} secureTextEntry={true}></TextInput>
+          <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttontext}>Login in</Text>
+          </TouchableOpacity>
+        </View>
+      </View>  
     </View>
+    
   );
 }
 
@@ -28,7 +32,15 @@ const styles = StyleSheet.create({
   contenedorprincipal: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center'
+  },
+  caja:{
+    justifyContent: 'center',
     alignItems: 'center',
+    width: 340,
+    height: 500,
+    backgroundColor: '#110000',
+    borderRadius: 7
   },
   welcome:{
     color: '#ffffff',
