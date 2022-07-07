@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput,CheckBox} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 
 var logo = "< Scan N'Go >";
@@ -9,18 +9,25 @@ export default function App() {
     <View style={styles.contenedorprincipal}>
       <LinearGradient
         colors={['#D8A31A','#002244','#53273C','#110000']}
+        
+        angle={90}
         style={styles.background}
       />
       <View>
         <View style={styles.caja}>
           <Text style={styles.welcome}> {logo} </Text>
-          <Text style={styles.textlogin}>Username or Student ID</Text>
-          <TextInput style={styles.inputtext} keyboardType='numeric'></TextInput>
-          <Text style={styles.textlogin}>Password</Text>
-          <TextInput style={styles.inputtext} secureTextEntry={true}></TextInput>
+          <TextInput style={styles.inputtext} keyboardType='numeric' placeholder='Username'></TextInput>
+          <TextInput style={styles.inputtext} secureTextEntry={true} placeholder='Password'></TextInput>
           <TouchableOpacity style={styles.button}>
           <Text style={styles.buttontext}>Login</Text>
           </TouchableOpacity>
+
+          <View style={styles.checkboxContainer}>
+            <CheckBox
+              style={styles.checkbox}/>
+            <Text style={styles.signedin}>Keep me signed in</Text>
+          </View>
+          
         </View>
       </View>  
     </View>
@@ -55,10 +62,9 @@ const styles = StyleSheet.create({
     height: 40,
     width: 300,
     margin: 12,
-    borderWidth: 1,
-    borderRadius: 25,
-    color:'#000000',
-    backgroundColor: '#ffffff',
+    borderBottomColor: '#ffffff',
+    borderBottomWidth: 1,
+    color:'#ffffff',
     padding: 10
   },
   button:{
@@ -78,5 +84,16 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     height: 1000,
+  },
+  checkbox:{
+    backgroundColor: '#ffffff'
+  },
+  checkboxContainer:{
+    flexDirection: "row",
+    paddingTop: 20,
+  },
+  signedin:{
+    color: '#ffffff',
+    paddingLeft: 10,
   }
 })
