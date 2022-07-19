@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput,CheckBox} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+import { Button } from 'react-native-web';
 
 var logo = "< Scan N'Go >";
 
@@ -9,9 +10,8 @@ export default function App() {
     <View style={styles.contenedorprincipal}>
       <LinearGradient
         colors={['#D8A31A','#002244','#53273C','#110000']}
-        
-        angle={90}
         style={styles.background}
+
       />
       <View>
         <View style={styles.caja}>
@@ -19,25 +19,24 @@ export default function App() {
           <TextInput style={styles.inputtext} keyboardType='numeric' placeholder='Username'></TextInput>
           <TextInput style={styles.inputtext} secureTextEntry={true} placeholder='Password'></TextInput>
           <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttontext}>Login</Text>
+            <Text style={styles.buttontext}>Login</Text>
           </TouchableOpacity>
-
           <View style={styles.checkboxContainer}>
             <CheckBox
               style={styles.checkbox}/>
             <Text style={styles.signedin}>Keep me signed in</Text>
           </View>
-          
+          <TouchableOpacity>
+            <Text style={styles.textlogin}>Forgot password?</Text>
+          </TouchableOpacity>
         </View>
       </View>  
-    </View>
-    
+    </View>  
   );
 }
-
 const styles = StyleSheet.create({
   contenedorprincipal: {
-    flex: 1,
+    flex: 6,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 340,
     height: 500,
-    backgroundColor: '#110000',
+    backgroundColor: '#002244',
     borderRadius: 7
   },
   welcome:{
@@ -55,8 +54,9 @@ const styles = StyleSheet.create({
   },
   textlogin:{
     color: '#ffffff',
-    textAlign: 'left',
-    fontSize: 18
+    textAlign: 'center',
+    fontSize: 20,
+    paddingTop: 10
   },
   inputtext:{
     height: 40,
@@ -95,5 +95,10 @@ const styles = StyleSheet.create({
   signedin:{
     color: '#ffffff',
     paddingLeft: 10,
+    fontSize: 20
+  },
+  imagen:{
+    height: 200,
+    width: 200
   }
 })
