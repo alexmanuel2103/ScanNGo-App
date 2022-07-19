@@ -1,69 +1,104 @@
-import { StyleSheet, Text, View,Image} from 'react-native';
-import Barcode from 'react-native-barcode-svg';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput,CheckBox} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
+import { Button } from 'react-native-web';
 
-export default function App(){
-    return(
-        <View style={ID_student.contenedormain}>
-            <View style={ID_student.studentID}>
-              <Text style={ID_student.textID}>Alex Manuel Barraza Paniagua</Text>
-              <Image style={ID_student.profilepic}  source={require('./assets/logo.png')}/>
-              <Text style={ID_student.textCareer}>Information Technologies</Text>
-              <Text style={ID_student.textGroup}>TIDBIS51M</Text>
-              <Text style={ID_student.IDNumber}>6520150003</Text>
-              <View style={ID_student.barcodestyle}>
-              <Barcode value="Hello World" format="CODE128" lineColor='#ffffff' backgroundColor='#110000' maxWidth={200} height={100}/>
-              </View>
-            </View>    
-        <View>
+var logo = "< Scan N'Go >";
+
+export default function App() {
+  return (
+    <View style={styles.contenedorprincipal}>
+      <LinearGradient
+        colors={['#D8A31A','#53273C','#110000']}
+        style={styles.background}
+
+      />
+      <View>
+        <View style={styles.caja}>
+          <Text style={styles.welcome}> {logo} </Text>
+          <TextInput style={styles.inputtext} keyboardType='numeric' placeholder='Username'></TextInput>
+          <TextInput style={styles.inputtext} secureTextEntry={true} placeholder='Password'></TextInput>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttontext}>Login</Text>
+          </TouchableOpacity>
+          <View style={styles.checkboxContainer}>
+            <CheckBox
+              style={styles.checkbox}/>
+            <Text style={styles.signedin}>Keep me signed in</Text>
+          </View>
+          <TouchableOpacity>
+            <Text style={styles.textlogin}>Forgot password?</Text>
+          </TouchableOpacity>
         </View>
-        </View>
-    );
+      </View>  
+    </View>  
+  );
 }
-
-const ID_student = StyleSheet.create({
-  contenedormain:{
-    flex: 1,
+const styles = StyleSheet.create({
+  contenedorprincipal: {
+    flex: 6,
     justifyContent: 'center',
     alignItems: 'center'
   },
-
-  studentID:{
+  caja:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 340,
+    height: 500,
     backgroundColor: '#110000',
-    borderRadius: 15,
-    justifyContent: 'center',
-    width: '300px',
-    height: '500px'
+    borderRadius: 7
   },
-  textID:{
+  welcome:{
     color: '#ffffff',
-    marginBottom: 20,
+    fontSize: 34
+  },
+  textlogin:{
+    color: '#ffffff',
+    textAlign: 'center',
+    fontSize: 20,
+    paddingTop: 10
+  },
+  inputtext:{
+    height: 40,
+    width: 300,
+    margin: 12,
+    borderBottomColor: '#ffffff',
+    borderBottomWidth: 1,
+    color:'#ffffff',
+    padding: 10
+  },
+  button:{
+    backgroundColor: '#D8A31A',
+    padding: 10,
+    marginTop: 15,
+    width: 200,
+    borderRadius: 25
+  },
+  buttontext:{
+    fontSize: 20,
     textAlign: 'center'
   },
-  profilepic:{
-    width: '150px',
-    height: '150px',
-    borderRadius: 20,
-    marginBottom: 50,
-    marginLeft: 70,
-    marginRight: 70,
-    justifyContent: 'center',
-    alignItems: 'center',
+  background:{
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 800,
   },
-  textCareer:{
+  checkbox:{
+    backgroundColor: '#ffffff'
+  },
+  checkboxContainer:{
+    flexDirection: "row",
+    paddingTop: 20,
+  },
+  signedin:{
     color: '#ffffff',
-    textAlign: 'center'
+    paddingLeft: 10,
+    fontSize: 20
   },
-  textGroup:{
-    color: '#ffffff',
-    textAlign: 'center'
-  },
-  IDNumber:{
-    color: '#ffffff',
-    textAlign: 'center'
-  },
-  barcodestyle:{
-    alignContent: 'center',
-    alignItems: 'center',
-    marginTop: 26
+  imagen:{
+    height: 200,
+    width: 200
   }
 })

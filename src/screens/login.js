@@ -9,7 +9,7 @@ export default function App() {
   return (
     <View style={styles.contenedorprincipal}>
       <LinearGradient
-        colors={['#D8A31A','#002244','#53273C','#110000']}
+        colors={['#D8A31A','#53273C','#110000']}
         style={styles.background}
 
       />

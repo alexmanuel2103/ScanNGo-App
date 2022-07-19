@@ -6,12 +6,12 @@ export default function App(){
         <View style={ID_student.contenedormain}>
             <View style={ID_student.studentID}>
               <Text style={ID_student.textID}>Alex Manuel Barraza Paniagua</Text>
-              <Image style={ID_student.profilepic}  source={require('./assets/logo.png')}/>
+              <Image style={ID_student.profilepic}  source={require('./assets/alexmanuel.png')}/>
               <Text style={ID_student.textCareer}>Information Technologies</Text>
               <Text style={ID_student.textGroup}>TIDBIS51M</Text>
               <Text style={ID_student.IDNumber}>6520150003</Text>
               <View style={ID_student.barcodestyle}>
-              <Barcode value="Hello World" format="CODE128" lineColor='#ffffff' backgroundColor='#110000' maxWidth={200} height={100}/>
+              <Barcode value="6520150003" format="CODE128" lineColor='#ffffff' backgroundColor='#110000' maxWidth={200} height={100}/>
               </View>
             </View>    
         <View>
