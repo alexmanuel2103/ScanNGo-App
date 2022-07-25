@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 340,
     height: 500,
-    backgroundColor: '#110000',
+    backgroundColor: '#002244',
     borderRadius: 7
   },
   welcome:{
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    height: 800,
+    height: 1000,
   },
   checkbox:{
     backgroundColor: '#ffffff'
